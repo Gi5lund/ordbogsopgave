@@ -61,18 +61,21 @@ async function fetchDataAndProcess() {
     });
     globalArray = arrayOfWords;
 }
+function perfFind(){
 performance.mark('start-index');
 globalArray.find(word => word.variant === "hestevogne");
 performance.mark('end-index');
 performance.measure('Finding index', 'start-index', 'end-index').duration;
 console.log(performance.getEntriesByName('Finding index'));
+}
+function perfBinary(){
 
 performance.mark('start-binary-search');
 binarySearchFunction("hestevogne", globalArray, strcmp);
 performance.mark('end-binary-search');
 performance.measure('Binary search', 'start-binary-search', 'end-binary-search').duration;
 console.log(performance.getEntriesByName('Binary search'));
-
+}
 
 function binarySearchFunction(value, values, strcmp) {
     let start = 0;
